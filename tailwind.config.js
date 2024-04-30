@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const daisyui = require('daisyui');
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -1101,5 +1102,5 @@ module.exports = {
       50: '50',
     },
   },
-  plugins: [],
+  plugins: [daisyui],
 };
