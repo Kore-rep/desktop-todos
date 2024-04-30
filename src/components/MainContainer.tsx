@@ -7,8 +7,8 @@ export default function MainContainer() {
     <div className="bg-slate-500 p-1">
       <Header />
       <TodosContainer>
-        <TodoItem text="Water the plants" />
-        <TodoItem text="Feed the cat" />
+        <TodoItem title="Water the plants" description="thirsty mfers." />
+        <TodoItem title="Feed the cat" description="hungry mfers" />
       </TodosContainer>
     </div>
   );
