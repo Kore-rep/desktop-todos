@@ -1,14 +1,19 @@
 import Header from './Header';
-import TodosContainer from './TodoContainer';
+import TodosContainer from './TodosContainer';
 import TodoItem from './TodoItem';
+import { Todo } from '../types/Todo';
+import useTodos from '../hooks/useTodos';
 
 export default function MainContainer() {
+  const { getTodos, addTodo, removeTodo, toggleTodoComplete } = useTodos();
+
   return (
-    <div className="bg-slate-500 p-1">
-      <Header />
+    <div className="bg-slate-500 p-1 flex flex-col w-full">
+      <Header handleAddTodo={addTodo} />
       <TodosContainer>
-        <TodoItem title="Water the plants" description="thirsty mfers." />
-        <TodoItem title="Feed the cat" description="hungry mfers" />
+        {getTodos().map((todo) => {
+          return <TodoItem handleRemoveTodo={removeTodo}>{todo}</TodoItem>;
+        })}
       </TodosContainer>
     </div>
   );

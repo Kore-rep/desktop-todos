@@ -1,17 +1,6 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import TodosContainer from '../components/TodoContainer';
 import MainContainer from '../components/MainContainer';
-
-function Hello() {
-  return (
-    <div>
-      <h1 className="bg-gray-500 text-center text-white">
-        Hi Tailwind has been integrated.
-      </h1>
-    </div>
-  );
-}
 
 export default function App() {
   return (
