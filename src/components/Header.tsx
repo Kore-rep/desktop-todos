@@ -1,5 +1,6 @@
 import { LuList, LuListFilter } from 'react-icons/lu';
 import { Todo } from '../types/Todo';
+import useTodos from '../hooks/useTodos';
 
 export interface HeaderProps {
   handleAddTodo: (newTodo: Todo) => any;
@@ -7,7 +8,6 @@ export interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const { handleAddTodo } = props;
-
   return (
     <div className="flex flex-row">
       <button
@@ -20,9 +20,6 @@ export default function Header(props: HeaderProps) {
         }
       >
         Add Todo
-      </button>
-      <button type="button" className="btn btn-ghost" onClick={() => {}}>
-        <LuListFilter size="20" />
       </button>
     </div>
   );

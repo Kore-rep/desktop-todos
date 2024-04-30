@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { current } from 'tailwindcss/colors';
 import { Todo } from '../types/Todo';
 
 export type TodoFilter = {
@@ -21,7 +22,7 @@ export default function useTodos() {
     outstanding: true,
   });
 
-  const getAllTodos = () => {
+  const getTodos = () => {
     return todos;
   };
 
@@ -29,24 +30,6 @@ export default function useTodos() {
    *
    * @returns A list of filtered todos, based on the currently selected filter
    */
-  const getTodos = () => {
-    return todos.filter((todo) => {
-      // eslint-disable-next-line consistent-return
-      Object.keys(currentFilter).forEach((key) => {
-        if (
-          todo[filterMapping[key as keyof TodoFilter] as keyof Todo] ===
-          currentFilter[key as keyof TodoFilter]
-        ) {
-          return true;
-        }
-      });
-      return false;
-    });
-  };
-
-  const updateFilter = (newFilter: TodoFilter) => {
-    setCurrentFilter(newFilter);
-  };
 
   const addTodo = (newTodo: Todo) => {
     setTodos([...todos, newTodo]);
@@ -115,6 +98,5 @@ export default function useTodos() {
     removeTodo,
     toggleTodoComplete,
     toggleTodoImportant,
-    updateFilter,
   };
 }
