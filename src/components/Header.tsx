@@ -1,4 +1,4 @@
-import { LuList, LuListFilter } from 'react-icons/lu';
+import { LuListFilter, LuPlus } from 'react-icons/lu';
 import { Todo } from '../types/Todo';
 import useTodos from '../hooks/useTodos';
 
@@ -9,18 +9,19 @@ export interface HeaderProps {
 export default function Header(props: HeaderProps) {
   const { handleAddTodo } = props;
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row text-center align-middle">
       <button
         type="button"
-        className="btn"
+        className="btn rounded-full h-10 w-10 p-0 min-h-10 ml-5 mt-3"
         onClick={() =>
           handleAddTodo(
             new Todo('Water the plants', 'The plants need watering'),
           )
         }
       >
-        Add Todo
+        <LuPlus size="20" />
       </button>
+      <div className="font-extrabold text-5xl mr-auto ml-auto">Todoo doos</div>
     </div>
   );
 }
