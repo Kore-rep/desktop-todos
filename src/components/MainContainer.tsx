@@ -5,14 +5,29 @@ import { Todo } from '../types/Todo';
 import useTodos from '../hooks/useTodos';
 
 export default function MainContainer() {
-  const { getTodos, addTodo, removeTodo, toggleTodoComplete } = useTodos();
+  const {
+    getTodos,
+    addTodo,
+    removeTodo,
+    toggleTodoComplete,
+    toggleTodoImportant,
+  } = useTodos();
 
   return (
     <div className="bg-slate-500 p-1 flex flex-col w-full">
       <Header handleAddTodo={addTodo} />
       <TodosContainer>
         {getTodos().map((todo) => {
-          return <TodoItem handleRemoveTodo={removeTodo}>{todo}</TodoItem>;
+          return (
+            <TodoItem
+              key={todo.id}
+              handleRemoveTodo={removeTodo}
+              handleCompleteTodo={toggleTodoComplete}
+              handleToggleImportantTodo={toggleTodoImportant}
+            >
+              {todo}
+            </TodoItem>
+          );
         })}
       </TodosContainer>
     </div>
