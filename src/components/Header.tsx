@@ -9,10 +9,10 @@ export interface HeaderProps {
 export default function Header(props: HeaderProps) {
   const { handleAddTodo } = props;
   return (
-    <div className="flex flex-row text-center align-middle">
+    <div className="flex flex-row text-center align-middle mt-2">
       <button
         type="button"
-        className="btn rounded-full h-10 w-10 p-0 min-h-10 ml-5 mt-3"
+        className="btn rounded-full h-10 w-10 p-0 min-h-10 ml-5 my-auto"
         onClick={() =>
           handleAddTodo(
             new Todo('Water the plants', 'The plants need watering'),
